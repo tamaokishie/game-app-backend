@@ -1,0 +1,30 @@
+openapi: 3.0.3
+info:
+  title: Game Result API
+  version: 1.0.0
+
+paths:
+  /post/results:
+    post:
+      summary: ゲームの結果を登録する
+      operationId: postResults
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PostResultRequests"
+      responses:
+        "204":
+          description: Game result registered
+
+components:
+  schemas:
+    PostResultRequests:
+      type: object
+      required:
+        - winner
+      properties:
+        winner:
+          type: string
+          example: player1
